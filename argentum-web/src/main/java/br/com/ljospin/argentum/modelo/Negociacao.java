@@ -1,11 +1,12 @@
 package br.com.ljospin.argentum.modelo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("negociacao")
-public final class Negociacao implements Comparable<Negociacao>{
+public final class Negociacao implements Comparable<Negociacao>, Serializable{
 	private final double preco;
 	private final int quantidade;
 	private final Calendar data;

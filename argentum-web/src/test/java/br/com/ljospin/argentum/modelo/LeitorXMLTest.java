@@ -4,12 +4,12 @@ import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.Calendar;
 import java.util.List;
 
 import org.junit.Test;
 
 import br.com.ljospin.argentum.reader.LeitorXML;
+import br.com.ljospin.argentum.modelo.Negociacao;
 
 public class LeitorXMLTest {
 

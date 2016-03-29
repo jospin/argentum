@@ -3,15 +3,15 @@ package br.com.ljospin.argentum.modelo;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public final class Candlestick {
-	private final double abertura;
+public final class Candle {
+	private final double abertura; 
 	private final double fechamento;
 	private final double minimo;
 	private final double maximo;
 	private final double volume;
 	private final Calendar data;
 
-	public Candlestick(double abertura, double fechamento, double minimo, double maximo, double volume, Calendar data) {
+	public Candle(double abertura, double fechamento, double minimo, double maximo, double volume, Calendar data) {
 		if (maximo < minimo) {
 			throw new IllegalArgumentException("Valor máximo deve ser maior que mínimo");
 		}

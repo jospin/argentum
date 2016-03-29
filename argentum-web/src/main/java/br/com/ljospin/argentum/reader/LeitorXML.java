@@ -11,7 +11,8 @@ import br.com.ljospin.argentum.modelo.Negociacao;
 public class LeitorXML {
 	public List<Negociacao> carrega(InputStream input) {
 		XStream stream = new XStream(new DomDriver());
-		stream.autodetectAnnotations(true);
-		return (List ) stream.fromXML(input);
+		//stream.autodetectAnnotations(true);
+		stream.alias("negociacao", Negociacao.class);
+		return (List<Negociacao>) stream.fromXML(input);
 	}
 }

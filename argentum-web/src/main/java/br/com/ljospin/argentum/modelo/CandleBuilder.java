@@ -48,11 +48,11 @@ public class CandleBuilder {
 		return this;
 	}
 
-	public Candlestick geraCandle() {
+	public Candle geraCandle() {
 		if (this.allSetters != 6) {
 			throw new IllegalStateException("Argumentos devem totalizar 6");
 		}
-		Candlestick candle = new Candlestick(this.abertura, this.fechamento, this.minimo, this.maximo, this.volume,
+		Candle candle = new Candle(this.abertura, this.fechamento, this.minimo, this.maximo, this.volume,
 				this.data);
 		return candle;
 	}

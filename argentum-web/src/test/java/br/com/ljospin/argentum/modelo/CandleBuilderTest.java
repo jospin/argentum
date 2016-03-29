@@ -14,7 +14,7 @@ public class CandleBuilderTest {
 	}
 	@Test
 	public void geracaoDeCandleComArgumentosCompletos() {
-		Candlestick candle = new CandleBuilder()
+		Candle candle = new CandleBuilder()
 									.comAbertura(10)
 									.comMinimo(5)
 									.comMaximo(15)
