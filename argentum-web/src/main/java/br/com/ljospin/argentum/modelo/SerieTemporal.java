@@ -15,7 +15,7 @@ public class SerieTemporal {
 	}
 
 	public int getUltimaPosicao() {
-		return this.candles.size();
+		return this.candles.size()-1;
 	}
 
 }

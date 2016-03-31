@@ -1,4 +1,4 @@
-package br.com.caelum.argentum.ws;
+package br.com.ljospin.argetum.ws;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +17,6 @@ public class ClienteWebService {
 		
 		try{
 			URL url = new URL(URL_WEBSERVICE);
-			
 			connection = (HttpURLConnection) url.openConnection();
 			
 			InputStream content = connection.getInputStream();
