@@ -24,7 +24,9 @@ import br.com.ljospin.argentum.modelo.SerieTemporal;
 @ManagedBean
 @ViewScoped
 /**
- * Classe Bean responsável por fazer a interação com a view do JSF da index.xhtml
+ * Classe Bean responsável por fazer a interação com a view do JSF da
+ * index.xhtml
+ * 
  * @author Lucien Jospin <lucien.carbonare@gmail.com>
  * @category Bean
  */
@@ -33,6 +35,7 @@ public class ArgentumBean implements Serializable {
 	private ChartModel modeloGrafico;
 	private String nomeMedia;
 	private String nomeIndicadorBase;
+	private String titulo;
 
 	public ArgentumBean() {
 		this.negociacoes = new ClienteWebService().getNegociacao();
@@ -41,22 +44,23 @@ public class ArgentumBean implements Serializable {
 
 	/**
 	 * Gerador de gráfico de acordo com as ações dos botões
+	 * 
 	 * @author Lucien Jospin <lucien.carbonare@gmail.com>
 	 * @return void
 	 */
 	public void geraGrafico() {
-		
+
 		if (this.nomeIndicadorBase == null && this.nomeMedia == null) {
 			this.nomeIndicadorBase = "IndicadorFechamento";
 			this.nomeMedia = "MediaMovelSimples";
 		}
-		
+
 		List<Candle> candles = new CandleFactory().constroiCandles(this.negociacoes);
 		SerieTemporal serie = new SerieTemporal(candles);
 		IndicadorFactory fabrica = new IndicadorFactory(this.nomeMedia, this.nomeIndicadorBase);
-		GeradorModeloGrafico geradorGrafico = new GeradorModeloGrafico(serie, 2, serie.getUltimaPosicao());
+		GeradorModeloGrafico geradorGrafico = new GeradorModeloGrafico(serie, 2, serie.getUltimaPosicao(), this.titulo);
 		geradorGrafico.plotaIndicador(fabrica.defineIndicador());
-		this.modeloGrafico = geradorGrafico.getModeloGrafico();		
+		this.modeloGrafico = geradorGrafico.getModeloGrafico();
 	}
 
 	public List<Negociacao> getNegociacoes() {
@@ -81,6 +85,14 @@ public class ArgentumBean implements Serializable {
 
 	public void setNomeIndicadorBase(String nomeIndicadorBase) {
 		this.nomeIndicadorBase = nomeIndicadorBase;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 }

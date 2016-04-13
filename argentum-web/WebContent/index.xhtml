@@ -28,8 +28,11 @@
 			</p:column>
 		</p:dataTable>
 	</h:form>
-	<h:form>
-		<h:panelGrid columns="5">
+	<h:form id="dadosGrafico">
+		<p:messages autoUpdate="true" />
+		<h:outputLabel value="Título do Gráfico:"/>
+		<p:inputText value="#{argentumBean.titulo}" id="titulo" required="true"/>
+		<h:panelGrid columns="6">
 			<h:outputLabel value="Media Movel:" />
 			<p:selectOneButton value="#{argentumBean.nomeMedia}">
 				<f:selectItem itemLabel="Simples" itemValue="MediaMovelSimples" />
